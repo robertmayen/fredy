@@ -11,6 +11,11 @@ services:
     volumes:
       - ./conf:/conf
       - ./db:/db
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+      - /etc/ssl/private:/etc/ssl/private:ro
     ports:
         - 9998:9998
+#        - 443:443
+    environment:
+      HTTPS_PORT: 443
     restart: unless-stopped
